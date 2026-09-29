@@ -1,5 +1,6 @@
 package com.example.parcial_am_valdiviezo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -7,8 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 
 import java.util.ArrayList;
+
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,6 +21,7 @@ public class EmpleadosActivity extends AppCompatActivity {
 
     private ArrayList<Empleado> empleados;
     private LinearLayout contenedorEmpleados;
+    private ActivityResultLauncher<Intent> crearEmpleadoLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,43 @@ public class EmpleadosActivity extends AppCompatActivity {
         ));
 
         mostrarEmpleados();
+
+        crearEmpleadoLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+
+                        Intent data = result.getData();
+
+                        String legajo = data.getStringExtra("legajo");
+                        String nombre = data.getStringExtra("nombre");
+                        String sede = data.getStringExtra("sede");
+                        String puesto = data.getStringExtra("puesto");
+
+                        empleados.add(new Empleado(
+                                legajo,
+                                nombre,
+                                sede,
+                                puesto
+                        ));
+
+                        contenedorEmpleados.removeAllViews();
+                        mostrarEmpleados();
+                    }
+                }
+        );
+
+        Button buttonCrearEmpleado = findViewById(R.id.buttonCrearEmpleado);
+
+        buttonCrearEmpleado.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    EmpleadosActivity.this,
+                    CrearEmpleadoActivity.class
+            );
+
+            crearEmpleadoLauncher.launch(intent);
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
