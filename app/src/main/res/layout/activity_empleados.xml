@@ -85,6 +85,16 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/buttonVolver"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#777777"
+                android:text="Volver"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </LinearLayout>
 
     </LinearLayout>

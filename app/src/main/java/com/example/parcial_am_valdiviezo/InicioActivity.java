@@ -15,7 +15,6 @@ public class InicioActivity extends AppCompatActivity {
     public void irEmpleados(View v){
         Intent intent = new Intent(getApplicationContext(), EmpleadosActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override

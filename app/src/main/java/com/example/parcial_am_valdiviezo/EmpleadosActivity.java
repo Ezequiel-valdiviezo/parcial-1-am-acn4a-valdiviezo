@@ -64,6 +64,12 @@ public class EmpleadosActivity extends AppCompatActivity {
 
         mostrarEmpleados();
 
+        Button buttonVolver = findViewById(R.id.buttonVolver);
+
+        buttonVolver.setOnClickListener(v -> {
+            finish();
+        });
+
         crearEmpleadoLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -150,4 +156,6 @@ public class EmpleadosActivity extends AppCompatActivity {
             contenedorEmpleados.addView(tarjeta);
         }
     }
+
+
 }
