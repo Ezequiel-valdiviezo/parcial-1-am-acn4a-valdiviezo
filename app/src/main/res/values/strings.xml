@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">parcial_am_valdiviezo</string>
     <string name="button_ingresar">Ingresar</string>
+    <string name="guardar_empleado">Guardar empleado</string>
+    <string name="parrafo_crear_empleado">Completá los datos del nuevo empleado.</string>
+    <string name="titulo_crear_empleado">Crear empleado</string>
+    <string name="descripcion_logo_dienst">Logo Dienst</string>
+    <string name="volver">Volver</string>
+    <string name="crear_empleado">Crear empleado</string>
+    <string name="p_empleado">Desde acá vas a poder gestionar los empleados de Capital Humano.</string>
+    <string name="titulo_empleados">Empleados</string>
+    <string name="titulo_inicio">Gestión de procesos internos CH</string>
+    <string name="parrafo_inicio">Desde acá vas a poder gestionar los procesos internos de Capital Humano. Elegí una opción para comenzar.</string>
+    <string name="reuniones">Reuniones</string>
+    <string name="empleados">Empleados</string>
+    <string name="ver_funcionalidades_inicio">Ver más funcionalidades</string>
+    <string name="proximamente">Proximamente</string>
 </resources>

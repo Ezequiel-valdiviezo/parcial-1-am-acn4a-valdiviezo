@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="@color/primary"
-            android:contentDescription="Logo Dienst"
+            android:contentDescription="@string/descripcion_logo_dienst"
             android:padding="18dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/logo_white" />
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Crear empleado"
+                android:text="@string/titulo_crear_empleado"
                 android:textColor="#222222"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Completá los datos del nuevo empleado."
+                android:text="@string/parrafo_crear_empleado"
                 android:textColor="#666666"
                 android:textSize="15sp" />
 
@@ -86,7 +86,7 @@
                 android:layout_height="52dp"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="@color/primary"
-                android:text="Guardar empleado"
+                android:text="@string/guardar_empleado"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
