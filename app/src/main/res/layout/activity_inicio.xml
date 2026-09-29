@@ -82,6 +82,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/primary"
                     android:text="Empleados"
+                    android:onClick="irEmpleados"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="15sp"
