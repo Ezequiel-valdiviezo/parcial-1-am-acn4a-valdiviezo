@@ -79,13 +79,13 @@ public class EmpleadosActivity extends AppCompatActivity {
                         Intent data = result.getData();
 
                         String legajo = data.getStringExtra("legajo");
-                        String nombre = data.getStringExtra("nombre");
+                        String apellido = data.getStringExtra("apellido");
                         String area = data.getStringExtra("area");
                         String puesto = data.getStringExtra("puesto");
 
                         empleados.add(new Empleado(
                                 legajo,
-                                nombre,
+                                apellido,
                                 area,
                                 puesto
                         ));
