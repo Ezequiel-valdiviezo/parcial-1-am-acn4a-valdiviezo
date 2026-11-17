@@ -145,6 +145,15 @@ public class ReunionesActivity extends AppCompatActivity {
             // Botón eliminar reunión
             Button buttonEliminar = new Button(this);
             buttonEliminar.setText("Eliminar reunión");
+            buttonEliminar.setAllCaps(false);
+            buttonEliminar.setTextColor(
+                    getResources().getColor(R.color.white)
+            );
+            buttonEliminar.setBackgroundTintList(
+                    android.content.res.ColorStateList.valueOf(
+                            getResources().getColor(R.color.primary)
+                    )
+            );
 
             buttonEliminar.setOnClickListener(v -> {
 
