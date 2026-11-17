@@ -153,6 +153,38 @@ public class EmpleadosActivity extends AppCompatActivity {
             tarjeta.addView(area);
             tarjeta.addView(puesto);
 
+            // Botón para eliminar empleado
+            Button buttonEliminar = new Button(this);
+            buttonEliminar.setText("Eliminar empleado");
+
+            // Evento del botón
+            buttonEliminar.setOnClickListener(v -> {
+
+                new androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setTitle("Eliminar empleado")
+                        .setMessage("¿Estás seguro de que querés eliminar a "
+                                + empleado.getApellido() + "?")
+                        .setPositiveButton("Eliminar", (dialog, which) -> {
+
+                            empleados.remove(empleado);
+
+                            contenedorEmpleados.removeAllViews();
+                            mostrarEmpleados();
+
+                            android.widget.Toast.makeText(
+                                    this,
+                                    "Empleado eliminado correctamente",
+                                    android.widget.Toast.LENGTH_SHORT
+                            ).show();
+                        })
+                        .setNegativeButton("Cancelar", (dialog, which) -> {
+                            dialog.dismiss();
+                        })
+                        .show();
+            });
+
+            tarjeta.addView(buttonEliminar);
+
             contenedorEmpleados.addView(tarjeta);
         }
     }
