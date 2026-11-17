@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.content.Intent;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 
 import java.util.ArrayList;
 
@@ -20,7 +23,7 @@ public class ReunionesActivity extends AppCompatActivity {
 
     private ArrayList<Reuniones> reuniones;
     private LinearLayout contenedorReuniones;
-
+    private ActivityResultLauncher<Intent> crearReunionLauncher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,45 @@ public class ReunionesActivity extends AppCompatActivity {
 
         mostrarReuniones();
 
+
+        crearReunionLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+
+                    if (result.getResultCode() == RESULT_OK
+                            && result.getData() != null) {
+
+                        Intent data = result.getData();
+
+                        String titulo = data.getStringExtra("titulo");
+                        String fecha = data.getStringExtra("fecha");
+                        String hora = data.getStringExtra("hora");
+                        String area = data.getStringExtra("area");
+                        String descripcion = data.getStringExtra("descripcion");
+
+                        // Creamos la nueva reunión
+                        reuniones.add(new Reuniones(
+                                titulo,
+                                fecha,
+                                hora,
+                                area,
+                                descripcion
+                        ));
+
+                        // Actualizamos el listado
+                        contenedorReuniones.removeAllViews();
+                        mostrarReuniones();
+
+                        Toast.makeText(
+                                this,
+                                "Reunión creada correctamente",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+        );
+
+
         // Botón volver
         Button buttonVolver = findViewById(R.id.buttonVolver);
 
@@ -71,11 +113,11 @@ public class ReunionesActivity extends AppCompatActivity {
                 findViewById(R.id.buttonCrearReunion);
 
         buttonCrearReunion.setOnClickListener(v -> {
-            Toast.makeText(
-                    this,
-                    "Próximamente: crear reunión",
-                    Toast.LENGTH_SHORT
-            ).show();
+            Intent intent = new Intent(
+                    ReunionesActivity.this,
+                    CrearReunionActivity.class
+            );
+            crearReunionLauncher.launch(intent);
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(
