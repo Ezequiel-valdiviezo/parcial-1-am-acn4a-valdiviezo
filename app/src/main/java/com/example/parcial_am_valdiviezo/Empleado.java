@@ -1,28 +1,28 @@
 package com.example.parcial_am_valdiviezo;
 
 public class Empleado {
-    private String nombre;
     private String legajo;
-    private String sede;
+    private String apellido;
+    private String area;
     private String puesto;
 
-    public Empleado(String nombre, String legajo, String sede, String puesto){
-        this.nombre = nombre;
+    public Empleado(String legajo, String apellido, String area, String puesto) {
         this.legajo = legajo;
-        this.sede = sede;
+        this.apellido = apellido;
+        this.area = area;
         this.puesto = puesto;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public String getLegajo() {
         return legajo;
     }
 
-    public String getSede() {
-        return sede;
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getArea() {
+        return area;
     }
 
     public String getPuesto() {

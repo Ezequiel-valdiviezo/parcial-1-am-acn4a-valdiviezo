@@ -80,13 +80,13 @@ public class EmpleadosActivity extends AppCompatActivity {
 
                         String legajo = data.getStringExtra("legajo");
                         String nombre = data.getStringExtra("nombre");
-                        String sede = data.getStringExtra("sede");
+                        String area = data.getStringExtra("area");
                         String puesto = data.getStringExtra("puesto");
 
                         empleados.add(new Empleado(
                                 legajo,
                                 nombre,
-                                sede,
+                                area,
                                 puesto
                         ));
 
@@ -136,21 +136,21 @@ public class EmpleadosActivity extends AppCompatActivity {
                     getResources().getColor(R.color.white)
             );
 
-            TextView nombre = new TextView(this);
-            nombre.setText("Nombre: " + empleado.getNombre());
+            TextView apellido = new TextView(this);
+            apellido.setText("Apellido: " + empleado.getApellido());
 
             TextView legajo = new TextView(this);
             legajo.setText("Legajo: " + empleado.getLegajo());
 
-            TextView sede = new TextView(this);
-            sede.setText("Área: " + empleado.getSede());
+            TextView area = new TextView(this);
+            area.setText("Área: " + empleado.getArea());
 
             TextView puesto = new TextView(this);
             puesto.setText("Puesto: " + empleado.getPuesto());
 
-            tarjeta.addView(nombre);
+            tarjeta.addView(apellido);
             tarjeta.addView(legajo);
-            tarjeta.addView(sede);
+            tarjeta.addView(area);
             tarjeta.addView(puesto);
 
             contenedorEmpleados.addView(tarjeta);
